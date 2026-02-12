@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    border: 2px solid black;
+}
+
+/* ===== Navbar ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-bottom: 2px solid black;
+    position: relative;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 6px 15px;
+    margin-left: 10px;
+    color: black;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: black;
+    color: white;
+}
+
+/* Hamburger */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ===== Hero ===== */
+.hero {
+    padding: 60px;
+    border-bottom: 2px solid black;
+}
+
+/* ===== Headquarter ===== */
+.headquarter {
+    padding: 50px;
+    border-bottom: 2px solid black;
+}
+
+.hq-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.circle {
+    width: 120px;
+    height: 120px;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.circle:hover {
+    transform: scale(1.1);
+}
+
+.hq-item {
+    text-align: center;
+}
+
+/* ===== Message ===== */
+.message {
+    padding: 50px;
+}
+
+.message-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+form input,
+form textarea {
+    margin-bottom: 12px;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+button {
+    padding: 8px;
+    border: 1px solid black;
+    background: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: black;
+    color: white;
+}
+
+.output-box {
+    width: 50%;
+    border: 1px solid black;
+    padding: 15px;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: right;
+    padding: 15px;
+    border-top: 2px solid black;
+}
+
+/* ===== Animasi Fade In ===== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Responsive (Mobile) ===== */
+@media (max-width: 768px) {
+
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 30px;
+        background: white;
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hq-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .message-container {
+        flex-direction: column;
+    }
+
+    form,
+    .output-box {
+        width: 100%;
+    }
+
+    .hero,
+    .headquarter,
+    .message {
+        padding: 30px;
+    }
+}
