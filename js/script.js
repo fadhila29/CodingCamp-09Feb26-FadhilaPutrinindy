@@ -1,47 +1,53 @@
-// ===== Toggle Mobile Menu =====
-const menuToggle = document.getElementById("menu-toggle");
-const navMenu = document.getElementById("nav-menu");
+welcomeMessage()
 
-menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
+function welcomeMessage() {
+    //Show Popup
+    let name = prompt("Welcome to My Personal Website! Please enter your name:");
 
-// ===== Current Time =====
-function updateTime() {
-    const now = new Date();
-    document.getElementById("currentTime").textContent = now.toString();
+    //Validation
+   if (name == null || name.trim() === "") {
+    // If user cancels or enters an empty name, set a default name
+        name = "Guest";
+    }
+
+    //Display Welcome Message
+    document.getElementById("welcome-speech").innerHTML = `Hello, ${name}! Welcome to My Personal Website!`;
 }
-updateTime();
 
-// ===== Form Submit =====
-document.getElementById("messageForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+function validateForm() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    let errorMessage = "";
+    if (name === "") {
+        errorMessage += "Name is required.\n";
+    }           
+    if (email === "") {
+        errorMessage += "Email is required.\n";
+    } else if (!isValidEmail(email)) {
+        errorMessage += "Please enter a valid email address.\n";
+    }
+    if (message === "") {
+        errorMessage += "Message is required.\n";
+    }
+    if (errorMessage !== "") {
+        alert(errorMessage);
+        return false;
+    }
+    return true;
+}
 
-    document.getElementById("outNama").textContent =
-        document.getElementById("nama").value;
-
-    document.getElementById("outTanggal").textContent =
-        document.getElementById("tanggal").value;
-
-    document.getElementById("outGender").textContent =
-        document.querySelector('input[name="gender"]:checked').value;
-
-    document.getElementById("outPesan").textContent =
-        document.getElementById("pesan").value;
-
-    updateTime();
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+// Add event listener to the form submit button
+document.getElementById("message-us-page").addEventListener("submit", function(event) {
+    if (validateForm()) {
+        event.preventDefault(); // Prevent form submission if validation passes
+        document.getElementById("message-us-page").innerHTML = "Thank you, your message has been sent!";
+    } else {
+        event.preventDefault(); // Prevent form submission if validation fails
+    }
 });
 
-// ===== Fade In Animation On Scroll =====
-const faders = document.querySelectorAll(".fade-in");
-
-window.addEventListener("scroll", () => {
-    faders.forEach(el => {
-        const position = el.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.2;
-
-        if (position < screenPosition) {
-            el.classList.add("show");
-        }
-    });
-});
