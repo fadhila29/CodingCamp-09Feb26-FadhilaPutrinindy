@@ -8,6 +8,7 @@
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="css\style.css">
     
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 </head>
@@ -15,84 +16,83 @@
 <body>
 
     <!-- Header content -->
-    <header>
-        <div class="logo" style="height: 75px; width: 75px; 
-        background-color: #d00779; border-radius: 50%; 
-        display: flex; align-items: center; justify-content: center;">😊</div>
+    <header class="flex justify-between items-center p-4 bg-pink-500 text-white">
 
-        <div class="menu-toggle" id="menu-toggle">
-            ☰
+        <!--logo-->
+        <div class="logo">
         </div>
 
-        <nav id="nav-menu">
-            <a href="#">Home</a>
-            <a href="#">Our Profile</a>
-            <a href="#">Portfolio</a>
-            <a href="#">Message Us</a>
+        <!--navigation menu -->
+        <nav class="flex">
+            <a class="border rounded p-2" href="home-page">Home</a>
+            <a class="border rounded p-2" href="our-profile-page">Our Profile</a>
+            <a class="border rounded p-2" href="portfolio-page">Portfolio</a>
+            <a class="border rounded p-2" href="message-us-page">Message Us</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero fade-in">
-        <h1>Hi Harfi, Welcome To Website</h1>
-        <p>Ini adalah website latihan pertama</p>
+    <hr />
+
+    <!-- Main Content -->
+   <main>
+    <!-- Home Page Content -->
+     <section id="home-page" class="min-h-[500px] text-center content-center">
+        <h2 class="text-xl font-bold" id="welcome-speech">Welcome to My Portfolio!</h2>
+        <p class="mt-2">This is a simple portfolio website created by Fadhila Putrinindy.</p>
+     </section>
+
+     <hr />
+
+     <!-- Our Profile Page Content -->
+      <section id="our-profile-page" class="min-h-[500px] text-center content-center">
+      <h2 class="text-xl font-bold">About Me</h2>
+      <p class="mt-2">I am Fadhila Putrinindy, someone who is interested in web development with experience in creating responsive and user-friendly websites.</p>
     </section>
 
-    <!-- Our Headquarter -->
-    <section class="headquarter fade-in">
-        <h2>Our Headquarter</h2>
-        <div class="hq-container">
-            <div class="hq-item">
-                <div class="circle"></div>
-                <p>Jakarta</p>
+    <hr />
+
+    <!-- Portfolio Page Content -->
+     <section id="portfolio-page" class="min-h-[500px] text-center content-center">
+        <h2 class="text-xl font-bold">My Portfolio</h2>
+        <p class="mt-2">Here are some of my interest:</p>
+        <ul class="mt-2 list-disc list-inside">
+            <li>Web Development</li>
+            <li>Cisco</li>
+            <li>Photography</li>
+     </section>
+
+    <hr />
+
+     <!-- Message Us Page Content -->
+    <section id="message-us-page" class="min-h-[500px] mx-8">
+        <header>
+                <h2 class="text-xl font-bold">Get in Touch</h2>
+            <p class="mt-2">Feel free to reach out to me through the form below!</p>
+        </header>
+    
+        <form>
+            <div class="mb-4">
+                <label class="block mb-2" for="name">Nama</label>
+                <input class="w-full p-2 border rounded" type="text" id="name" name="name" required>
             </div>
-            <div class="hq-item">
-                <div class="circle"></div>
-                <p>Bandung</p>
+            <div>
+                <label class="block mb-2" for="email">Email</label>
+                <input class="w-full p-2 border rounded" type="email" id="email" name="email" required>
             </div>
-            <div class="hq-item">
-                <div class="circle"></div>
-                <p>Surabaya</p>
+            <div class="mb-4">
+                <label class="block mb-2" for="message">Message</label>
+                <textarea class="w-full p-2 border rounded" id="message" name="message" rows="4" required></textarea>
             </div>
-        </div>
+            <button class="bg-pink-500 text-white p-2 rounded" type="submit">Submit</button>
+        </form>
     </section>
+            
+   </main>
 
-    <!-- Message Us -->
-    <section class="message fade-in">
-        <h2>Message Us</h2>
-
-        <div class="message-container">
-            <form id="messageForm">
-                <label>Nama</label>
-                <input type="text" id="nama" required>
-
-                <label>Tanggal Lahir</label>
-                <input type="date" id="tanggal" required>
-
-                <label>Jenis Kelamin</label>
-                <div class="radio-group">
-                    <input type="radio" name="gender" value="Laki-Laki" required> Laki-Laki
-                    <input type="radio" name="gender" value="Perempuan"> Perempuan
-                </div>
-
-                <label>Pesan</label>
-                <textarea id="pesan" rows="4" required></textarea>
-
-                <button type="submit">Submit</button>
-            </form>
-
-            <div class="output-box">
-                <p><strong>Current time:</strong> <span id="currentTime"></span></p>
-                <p><strong>Nama:</strong> <span id="outNama"></span></p>
-                <p><strong>Tanggal Lahir:</strong> <span id="outTanggal"></span></p>
-                <p><strong>Jenis Kelamin:</strong> <span id="outGender"></span></p>
-                <p><strong>Pesan:</strong> <span id="outPesan"></span></p>
-            </div>
-        </div>
-    </section>
-
+    <!-- Footer content -->
+     <hr />
     <footer>
-        <p>Created By Fadhila Putrinindy</p>
+        <p class="text-center p-4">Created By Fadhila Putrinindy</p>
     </footer>
     
     <!-- Link to external JS file -->
